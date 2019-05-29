@@ -197,7 +197,7 @@ Class Monad `{C:Category obj hom}
     v       μ       v
     T² -----------> T
 *)
-  μ_asoc  : forall x:obj,
+  μ_asoc : forall x:obj,
                   (μ x)°(T (Tobj (Tobj x)) (Tobj x) (μ x)) = (μ x)°(μ (Tobj x));
 (* η is 'unit' for μ
 
