@@ -51,9 +51,7 @@ between monads and Kleisli triples.
 (See [Gammon, S. C. (2007). Notions of category theory in functional programming (Doctoral dissertation, University of British Columbia).](https://open.library.ubc.ca/cIRcle/collections/ubctheses/831/items/1.0080357))
 Finally, in 2016, I formalized Gammon's proof in the proof assistant Coq.
 
-My thesis is [here](https://github.com/spidermoy/Monads_KleisliTriples_Proof/blob/master/DegreeThesis.pdf)
-and the formalized proof is [here](https://github.com/spidermoy/Monads_KleisliTriples_Proof/blob/master/cats_monads_proofs.v).
-
+My thesis work is the file `DegreeThesis.pdf` and the formalized proof the file `cats_monads_proofs.v`
 
 
 
