@@ -1,5 +1,5 @@
 Monads in functional programming: a formalized proof of their equivalence with Kleisli triples
-=======
+===============================================================================================
 
 “Being a language, mathematics may be used not only to inform but also, among other things, to seduce.”  
 ─Benoît Mandelbrot
@@ -53,8 +53,26 @@ Finally, in 2016, I formalized Gammon's proof in the proof assistant Coq.
 
 My thesis work is the file `DegreeThesis.pdf` and the formalized proof the file `cats_monads_proofs.v`
 
+---
 
+## Coq
 
+I used CoqIde 8.6 to run my script.
 
+I utilized _type classes_ to define category theory concepts
+(see [A Gentle Introduction to Type Classes and Relations in Coq](http://www.labri.fr/perso/casteran/CoqArt/TypeClassesTut/typeclassestut.pdf))
+and inspiration given from [Matthieu Sozeau's work](https://www.irif.fr/~sozeau//repos/coq/cat/).
+
+My script contains:
+
+    * Category definition
+    * Category examples
+    * Functor definition
+    * Identity functor
+    * Functors composition
+    * Natural Transformation definition
+    * Monad definition
+    * Kleisli triple definition
+    * Formalized proof of the mathematical equivalence between monads and Kleisli triples. 
 
 

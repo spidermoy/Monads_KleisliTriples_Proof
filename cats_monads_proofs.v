@@ -114,7 +114,7 @@ Class Functor `{C:Category objC homC,
 }.
 
 
-(* Functor Identity. *)
+(* Identity Functor. *)
 Definition functId `(C:Category obj hom):
   Functor (fun x:obj => x) (fun {a b : obj} (f:hom a b) => f).
 Proof.
