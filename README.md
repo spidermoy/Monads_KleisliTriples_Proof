@@ -68,11 +68,11 @@ My script contains:
     * Category definition
     * Category examples
     * Functor definition
-    * Identity functor
-    * Functors composition
+    * Identity functor definition
+    * Functors composition definition
     * Natural Transformation definition
     * Monad definition
     * Kleisli triple definition
-    * Formalized proof of the mathematical equivalence between monads and Kleisli triples. 
+    * Formalized proof of the mathematical equivalence between monads and Kleisli triples
 
 
