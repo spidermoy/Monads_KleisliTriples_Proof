@@ -43,4 +43,11 @@ based on a Kleisli triple rather than category-theory's standard definition.
 The two constructs turn out to be mathematically equivalent.
 (See [Kleisli Triple](https://en.wikipedia.org/wiki/Kleisli_category))
 
+In 1991, Moggi give us a small and informal proof of the mathematical equivalence 
+between monads and Kleisli triples. 
+(See [Moggi, E. (1991). Notions of computation and monads](https://www.disi.unige.it/person/MoggiE/ftp/ic91.pdf))
+
+
+
+
 
