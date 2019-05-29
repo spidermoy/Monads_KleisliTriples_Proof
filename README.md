@@ -26,4 +26,16 @@ The notion of monad was invented by Roger Godement in 1958 under the name
 "triple." The now standard term "monad" is due to Saunders Mac Lane.
 (See [Monad](https://en.wikipedia.org/wiki/Monad_(category_theory)#Overview))
 
+Eugenio Moggi was the first to explicitly link the monad of category theory to 
+functional programming. In earlier work, several computer scientists
+had advanced using category theory to provide semantics for the lambda calculus. 
+Several others popularized and built on this idea, including Philip Wadler and 
+Simon Peyton Jones, both of whom were involved in the specification of Haskell.
+At first, programming with monads was largely confined to Haskell and its derivatives, 
+but as functional programming has influenced other paradigms, many languages have 
+incorporated a monad pattern (in spirit if not in name). 
+Formulations now exist in Scheme, Perl, Python, Racket, Clojure, Scala, F#, 
+and have also been considered for a new ML standard. 
+(See [Monad (functional programming)](https://en.wikipedia.org/wiki/Monad_(functional_programming)))
+
 
