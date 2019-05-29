@@ -38,4 +38,9 @@ Formulations now exist in Scheme, Perl, Python, Racket, Clojure, Scala, F#,
 and have also been considered for a new ML standard. 
 (See [Monad (functional programming)](https://en.wikipedia.org/wiki/Monad_(functional_programming)))
 
+The more common definition for a monad in functional programming is actually 
+based on a Kleisli triple rather than category-theory's standard definition. 
+The two constructs turn out to be mathematically equivalent.
+(See [Kleisli Triple](https://en.wikipedia.org/wiki/Kleisli_category))
+
 
