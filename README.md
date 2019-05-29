@@ -1,5 +1,5 @@
 Monads in functional programming: a formalized proof of their equivalence with Kleisli triples
-===============================================================================================
+=======
 
 “Being a language, mathematics may be used not only to inform but also, among other things, to seduce.”  
 ─Benoît Mandelbrot
@@ -18,6 +18,8 @@ This repository contains my work for obtain my computer scientist degree.
 My work consisted in to formalize in [Coq](https://coq.inria.fr/) basic concepts
 of Category Theory, and realize a formal verification of a proof of equivalence
 between monads and Kleisli triples.
+
+---
 
 ## A few history
 
@@ -50,8 +52,6 @@ In 2005, Gammon shows a detailed and extended formal proof of the mathematical e
 between monads and Kleisli triples. 
 (See [Gammon, S. C. (2007). Notions of category theory in functional programming (Doctoral dissertation, University of British Columbia).](https://open.library.ubc.ca/cIRcle/collections/ubctheses/831/items/1.0080357))
 Finally, in 2016, I formalized Gammon's proof in the proof assistant Coq.
-
-My thesis work is the file `DegreeThesis.pdf` and the formalized proof the file `cats_monads_proofs.v`
 
 ---
 
