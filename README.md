@@ -15,10 +15,15 @@ Monads in functional programming: a formalized proof of their equivalence with K
 
 This repository contains my work for obtain my computer scientist degree.
 
-My work consisted in to formalize in [Coq](https://coq.inria.fr/) basic concepts 
-of Category Theory, and realize a formal verification of a proof of equivalence 
+My work consisted in to formalize in [Coq](https://coq.inria.fr/) basic concepts
+of Category Theory, and realize a formal verification of a proof of equivalence
 between monads and Kleisli triples.
 
 ## A few history
+
+The notion of monad was invented by Roger Godement in 1958 under the name 
+"standard construction." In the 1960s and 1970s, many people used the name 
+"triple." The now standard term "monad" is due to Saunders Mac Lane.
+(See [Monad](https://en.wikipedia.org/wiki/Monad_(category_theory)#Overview))
 
 
