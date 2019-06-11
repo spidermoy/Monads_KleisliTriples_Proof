@@ -1,5 +1,5 @@
 (*
-  Autor: Cenobio Moisés Vázquez Reyes
+  Author: Cenobio Moisés Vázquez Reyes
 
   This module is part of my thesis degree work named:
 
