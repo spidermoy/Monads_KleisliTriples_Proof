@@ -59,7 +59,7 @@ Finally, in 2016, I formalized Gammon's proof in the proof assistant Coq.
 
 I used CoqIde 8.6 to run my script.
 
-I utilized _type classes_ to define category theory concepts
+I use _type classes_ to define category theory concepts
 (see [A Gentle Introduction to Type Classes and Relations in Coq](http://www.labri.fr/perso/casteran/CoqArt/TypeClassesTut/typeclassestut.pdf))
 and inspiration given from [Matthieu Sozeau's work](https://www.irif.fr/~sozeau//repos/coq/cat/).
 
