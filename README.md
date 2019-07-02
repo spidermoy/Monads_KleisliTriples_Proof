@@ -15,8 +15,8 @@ Monads in functional programming: a formalized proof of their equivalence with K
 
 This repository contains my work for obtain my computer scientist degree.
 
-My work consisted in to formalize in [Coq](https://coq.inria.fr/) basic concepts
-of Category Theory, and realize a formal verification of a proof of equivalence
+My work consisted in to formalize basic concepts
+of Category Theory in [Coq](https://coq.inria.fr/), and realize a formal verification of a proof of equivalence
 between monads and Kleisli triples.
 
 ---
