@@ -13,7 +13,7 @@ Monads in functional programming: a formalized proof of their equivalence with K
 ─Benjamin C. Pierce
 
 
-This repository contains my work for obtain my computer scientist degree.
+This repository contains my work for obtain my computer scientist degree. My thesis is [here](http://132.248.9.195/ptd2016/junio/0746652/Index.html).
 
 My work consisted in to formalize basic concepts
 of Category Theory in [Coq](https://coq.inria.fr/), and realize a formal verification of a proof of equivalence
