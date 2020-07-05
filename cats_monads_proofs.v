@@ -14,6 +14,7 @@
 
 
 Require Coq.Program.Tactics.
+Require Import Coq.Unicode.Utf8_core.
 
 Section Category_Theory.
 
@@ -26,17 +27,17 @@ Generalizable All Variables.
       •) ∀ a, b ∊ 'obj', an arrows class 'hom(a, b)'. *)
 Class Category (obj:Type) (hom:obj->obj->Type) := {
 (* •) ∀ a ∊ 'obj', an arrow 'id(a)' ∊ 'hom(a, a)'. *)
-  id : forall a:obj, hom a a;
+  id : ∀ a:obj, hom a a;
 (* •) ∀ a, b, c ∊ 'obj', the arrows composition operator
                             'comp': 'hom(b, c)' → 'hom(a, b)' → 'hom(a, c)' *)
-  comp : forall {a b c : obj}, hom b c -> hom a b -> hom a c;
+  comp : ∀ {a b c : obj}, hom b c -> hom a b -> hom a c;
 (* That fulfill the following:
   ⋆) 'comp' operator is associative. *)
-  asoc : forall {a b c d : obj} (f:hom a b) (g:hom b c) (h:hom c d),
+  asoc : ∀ {a b c d : obj} (f:hom a b) (g:hom b c) (h:hom c d),
                                          comp h (comp g f) = comp (comp h g) f;
 (* ⋆) 'id' is neutral, on the left and on the right, for the 'comp' operator. *)
-  id_left  : forall {a b : obj} (f:hom a b), comp (id b) f = f;
-  id_right : forall {a b : obj} (f:hom a b), comp f (id a) = f
+  id_left  : ∀ {a b : obj} (f:hom a b), comp (id b) f = f;
+  id_right : ∀ {a b : obj} (f:hom a b), comp f (id a) = f
 }.
 
 Infix "°" := comp (at level 40).
@@ -60,9 +61,9 @@ Program Instance Coq_Category : Category Type (fun (a b:Type) => a->b) := {
   and 'e' is neutral for •.
 *)
 Class Monoid (M:Type) (dot:M->M->M) (e:M) := {
-  asocc   : forall x y z : M, dot x (dot y z) = dot (dot x y) z;
-  e_left  : forall x, dot e x = x;
-  e_right : forall x, dot x e = x
+  asocc   : ∀ x y z : M, dot x (dot y z) = dot (dot x y) z;
+  e_left  : ∀ x, dot e x = x;
+  e_right : ∀ x, dot x e = x
 }.
 
 (* Singleton type 'P' *)
@@ -78,9 +79,10 @@ Inductive P:Type := Point.
 *)
 Program Instance Monoid_Category `{Mon:Monoid M dot e}:
   Category P (fun _ _ => M) := {
-  id   := fun _ => e;
+  id   := fun _     => e;
   comp := fun _ _ _ => dot
 }.
+
 Next Obligation.
 apply asocc.
 Qed.
@@ -104,12 +106,12 @@ Qed.
 *)
 Class Functor `{C:Category objC homC,
                 D:Category objD homD}
-(Fobj:objC->objD) (F:forall {a b : objC}, homC a b->homD (Fobj a) (Fobj b)) := {
+(Fobj:objC->objD) (F:∀ {a b : objC}, homC a b->homD (Fobj a) (Fobj b)) := {
 (* That fulfill the following:
    •) F preserves identities. *)
-  preserv_id   : forall a:objC, F (id a) = id (Fobj a);
+  preserv_id   : ∀ a:objC, F (id a) = id (Fobj a);
 (* •) F preserves arrows composition. *)
-  preserv_comp : forall {a b c : objC} (f:homC a b) (g:homC b c),
+  preserv_comp : ∀ {a b c : objC} (f:homC a b) (g:homC b c),
                                                           F (g°f) = (F g)°(F f)
 }.
 
@@ -131,6 +133,7 @@ Definition FunctComp
     Ffunct: ! Functor (Fobj:objC->objD) F):
   Functor (fun x:objC => Gobj (Fobj x))
           (fun {a b : objC} (f:homC a b) => G (Fobj a) (Fobj b) (F a b f)).
+
 Proof.
 split; intros.
 rewrite preserv_id; apply preserv_id.
@@ -149,7 +152,7 @@ Infix "●" := FunctComp (at level 40).
 Class NatTransf `{C:Category objC homC, D:Category objD homD}
                 `(F1: ! Functor (Fobj:objC->objD) F,
                   F2: ! Functor (Gobj:objC->objD) G)
-                 (η:forall x:objC, homD (Fobj x) (Gobj x)) := {
+                 (η:∀ x:objC, homD (Fobj x) (Gobj x)) := {
 (* That fulfill the following:, for each f:a → b,
 
              F(f)
@@ -162,7 +165,7 @@ Class NatTransf `{C:Category objC homC, D:Category objD homD}
      v       G(f)       v
     G(a) ------------> G(b)
 *)
-  η_law : forall {a b : objC} (f : homC a b), (G a b f)°(η a) = (η b)°(F a b f)
+  η_law : ∀ {a b : objC} (f : homC a b), (G a b f)°(η a) = (η b)°(F a b f)
 }.
 
 
@@ -182,8 +185,8 @@ Class NatTransf `{C:Category objC homC, D:Category objD homD}
 *)
 Class Monad `{C:Category obj hom}
             `(TFunct: ! Functor (Tobj:obj->obj) T,
-              η_NT: ! NatTransf (functId C) TFunct η,
-              μ_NT: ! NatTransf (TFunct●TFunct) TFunct μ) := {
+              η_NT:   ! NatTransf (functId C) TFunct η,
+              μ_NT:   ! NatTransf (TFunct●TFunct) TFunct μ) := {
 (* That fulfill the following:
    μ is 'asociative':
 
@@ -197,8 +200,7 @@ Class Monad `{C:Category obj hom}
     v       μ       v
     T² -----------> T
 *)
-  μ_asoc : forall x:obj,
-                  (μ x)°(T (Tobj (Tobj x)) (Tobj x) (μ x)) = (μ x)°(μ (Tobj x));
+  μ_asoc : ∀ x:obj, (μ x)°(T (Tobj (Tobj x)) (Tobj x) (μ x)) = (μ x)°(μ (Tobj x));
 (* η is 'unit' for μ
 
        η(T)          T(η)
@@ -211,8 +213,8 @@ Class Monad `{C:Category obj hom}
    v           v            v
    T ========= T ========== T
 *)
-  η_left  : forall x:obj, (μ x)°(η (Tobj x)) = id (Tobj x);
-  η_right : forall x:obj, (μ x)°(T x (Tobj x) (η x)) = id (Tobj x)
+  η_left  : ∀ x:obj, (μ x)°(η (Tobj x)) = id (Tobj x);
+  η_right : ∀ x:obj, (μ x)°(T x (Tobj x) (η x)) = id (Tobj x)
 }.
 
 
@@ -227,15 +229,15 @@ Class Monad `{C:Category obj hom}
 *)
 Class KleisliTriple `{C:Category obj hom}
                      (Tobj:obj->obj)
-                     (η:forall a:obj, hom a (Tobj a)) := {
-  ext  : forall {a b : obj}, hom a (Tobj b) -> hom (Tobj a) (Tobj b);
+                     (η:∀ a:obj, hom a (Tobj a)) := {
+  ext  : ∀ {a b : obj}, hom a (Tobj b) -> hom (Tobj a) (Tobj b);
 (* That fulfill the following:
    •) η(a)★ = id(T(a)) *)
-  ki   : forall a:obj, ext (η a) = id (Tobj a);
+  ki   : ∀ a:obj, ext (η a) = id (Tobj a);
 (* •) f★ ° η(a) = f *)
-  kii  : forall {a b : obj} (f:hom a (Tobj b)), (ext f)°(η a) = f;
+  kii  : ∀ {a b : obj} (f:hom a (Tobj b)), (ext f)°(η a) = f;
 (* g★ ° f★ = (g★ ° f)★ *)
-  kiii : forall {a b c : obj} (f:hom a (Tobj b)) (g:hom b (Tobj c)),
+  kiii : ∀ {a b c : obj} (f:hom a (Tobj b)) (g:hom b (Tobj c)),
                                               (ext g)°(ext f) = ext ((ext g)°f)
 }.
 
