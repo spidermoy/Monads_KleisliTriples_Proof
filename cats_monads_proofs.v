@@ -111,8 +111,7 @@ Class Functor `{C:Category objC homC,
    •) F preserves identities. *)
   preserv_id   : ∀ a:objC, F (id a) = id (Fobj a);
 (* •) F preserves arrows composition. *)
-  preserv_comp : ∀ {a b c : objC} (f:homC a b) (g:homC b c),
-                                                          F (g°f) = (F g)°(F f)
+  preserv_comp : ∀ {a b c : objC} (f:homC a b) (g:homC b c), F (g°f) = (F g)°(F f)
 }.
 
 
@@ -237,8 +236,7 @@ Class KleisliTriple `{C:Category obj hom}
 (* •) f★ ° η(a) = f *)
   kii  : ∀ {a b : obj} (f:hom a (Tobj b)), (ext f)°(η a) = f;
 (* g★ ° f★ = (g★ ° f)★ *)
-  kiii : ∀ {a b c : obj} (f:hom a (Tobj b)) (g:hom b (Tobj c)),
-                                              (ext g)°(ext f) = ext ((ext g)°f)
+  kiii : ∀ {a b c : obj} (f:hom a (Tobj b)) (g:hom b (Tobj c)), (ext g)°(ext f) = ext ((ext g)°f)
 }.
 
 Notation "f ★" := (ext f) (at level 40).
