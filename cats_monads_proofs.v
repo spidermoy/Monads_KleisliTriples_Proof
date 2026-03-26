@@ -13,8 +13,8 @@
 *)
 
 
-Require Coq.Program.Tactics.
-Require Import Coq.Unicode.Utf8_core.
+Require Stdlib.Program.Tactics.
+Require Import Stdlib.Unicode.Utf8_core.
 
 Section Category_Theory.
 
